@@ -41,7 +41,9 @@ class Budget {
             currentDate = startDate.add(1, 'days');
 
             if (currentDate.day() !== 0 && currentDate.day() !== 6) {
-                final.push(this.appreciation[this.weekOfMonth(currentDate)]);
+                if (this.appreciation[this.weekOfMonth(currentDate)]) {
+                    final.push(this.appreciation[this.weekOfMonth(currentDate)]);
+                }
             } else {
                 final.push(null);
             }
@@ -83,6 +85,6 @@ class Budget {
     }
 }
 
-const bananaBudget = new Budget('8/10/18', 250);
+const bananaBudget = new Budget('8/10/18', 25);
 
 console.log(bananaBudget.getPrice());
